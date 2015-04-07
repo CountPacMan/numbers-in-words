@@ -67,9 +67,13 @@ function testMillion(words, number) {
 
 
 jQuery(document).ready(function() {
-  $("#word").focus();
-  $("#anagram").submit(function(event) {
+  $("#number").focus();
+  $("#number-in-words").submit(function(event) {
+    var number = parseInt($("#number").val());
+    var words = getWords(number);
 
+    $("#words").text(words);
+    $("#result").show();
     event.preventDefault();
   });
 });
