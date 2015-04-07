@@ -17,7 +17,13 @@ function getWords(number) {
       number = 0;
     } else if (number < 100) {
       words += tens[parseInt(number / 10)];
-      number = number % 10;
+      number %= 10;
+    } else if (number < 1000) {
+      words += ones[parseInt(number / 100)] + " hundred";
+      number %= 100;
+    } else if (number < 10000) {
+      words += ones[parseInt(number / 1000)] + " thousand";
+      number %= 1000;
     }
   }
 
