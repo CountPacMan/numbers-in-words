@@ -24,6 +24,15 @@ function getWords(number) {
     } else if (number < 10000) {
       words += ones[parseInt(number / 1000)] + " thousand";
       number %= 1000;
+    } else if (number < 20000) {
+      words += teens[parseInt(number / 1000)] + " thousand";
+      number %= 1000;
+    } else if (number < 100000) {
+      words += tens[parseInt(number / 10000)];
+      number %= 10000;
+      if (parseInt(number/1000) === 0) {
+        words += " thousand";
+      }
     }
   }
 
